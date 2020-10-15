@@ -1,0 +1,159 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<style>
+    #contactus{
+  background-color: #ffffff;
+  letter-spacing: 0px;
+  }
+#contactus a{
+  color: #000000;
+  text-decoration: none;
+}
+
+
+@media (max-width: 575.98px) {
+
+  #contactus{padding-bottom: 800px;}
+  #contactus .maps iframe{
+    width: 100%;
+    height: 450px;
+  }
+ }
+
+
+@media (min-width: 576px) {
+
+   #contactus{padding-bottom: 800px;}
+
+   #contactus .maps iframe{
+     width: 100%;
+     height: 450px;
+   }
+ }
+
+@media (min-width: 768px) {
+
+  #contactus{padding-bottom: 350px;}
+
+  #contactus .maps iframe{
+    width: 100%;
+    height: 850px;
+  }
+}
+
+@media (min-width: 992px) {
+  #contactus{padding-bottom: 200px;}
+
+   #contactus .maps iframe{
+     width: 100%;
+     height: 555px;
+   }
+}
+
+
+#author a{
+  color: #000000;
+  text-decoration: none;
+
+}
+
+
+
+</style>
+<section>
+    <div class="container">
+        <div class="row" id="contactus">
+            <div class="container mt-5">
+                {% if name %}
+                <center><h2>Thank You! {{name}}</h2>
+                    <p>We received your email and will revert you back very soon...</p></center>
+
+
+                {% else %}
+
+                <div class="row" style="height:400px;">
+                    <div class="col-md-6">
+                        <h2 class="text-uppercase mt-3 font-weight-bold text-dark">Contact Us</h2>
+
+                        <form action="{% url 'venture:contact' %}" method="POST">
+                            {% csrf_token %}
+
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <input type="text" name="name" class="form-control mt-2" placeholder="Name"
+                                               required>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <input type="text" name="subject" class="form-control mt-2"
+                                               placeholder="Subject"
+                                               required>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <input type="email" name="email" class="form-control mt-2" placeholder="Email"
+                                               required>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <input type="number" name="number" class="form-control mt-2"
+                                               placeholder="Telephone"
+                                               required>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-group">
+                                    <textarea class="form-control" name="text" id="exampleFormControlTextarea1"
+                                              placeholder="Text" rows="3" required></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <div class="form-check">
+                                            <input class="form-check-input" name="" type="checkbox" value=""
+                                                   id="invalidCheck2" required>
+                                            <label class="form-check-label" for="invalidCheck2">
+                                                Accepted
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <button class="btn btn-primary" value="send" type="submit">Send</button>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="text-dark float-left">
+                            <h2 class="text-uppercase mt-3 font-weight-bold text-dark">Contact Details</h2>
+
+                            <i class="fa fa-map-marker-alt mt-3"></i> <a href="https://goo.gl/maps/BYmkZ1xQjUtzXf6e7">
+                            Near
+                            Railway Station, Annavaram, East Godavari District, Andhra Pradesh</a><br>
+                            <i class="fas fa-phone mt-3"></i> <a href="tel:+"> (+91) 97011 44449</a><br>
+                            <i class="fas fa-phone mt-3"></i> <a href="tel:+"> (+91) 73824 86336</a><br>
+                            <i class="fa fa-envelope mt-3"></i> <a href=""> ssv@gmail.com</a><br>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 maps">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15240.03736580529!2d82.416615!3d17.266783!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x5fb03479e2ebd1b6!2sSRI%20SAKTHI%20VENTURE!5e0!3m2!1sen!2sin!4v1602080787823!5m2!1sen!2sin"
+                                width="550" height="400" frameborder="0" style="border:0;" allowfullscreen=""
+                                aria-hidden="false" tabindex="0"></iframe>
+                    </div>
+
+                </div>
+
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock body %}

@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<style>
+  #details{
+  background-color: #ffffff;
+  letter-spacing: 1px;
+  }
+</style>
+<br>
+<div class="container">
+    <div class="row mx-auto">
+
+      <div class="col-md-12 mx-auto">
+
+        <div class="card card-1" id="details">
+            <img class="card-img-top" src="{{details.image.url}}" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title"><b>{{details.name}}</b></h5>
+                <p class="card-text"><b>Address:</b> {{details.address}}</p>
+                <p class="card-text"><b>Total Plots:</b> {{details.total_plots}}</p>
+                <p class="card-text"><b>Plots Sold Out:</b> {{details.plots_sold_out}}</p>
+                <p class="card-text"><b>Plots Available:</b> {{details.plots_available}}</p>
+                <p class="card-text"><b>Total Area:</b> {{details.total_area}} acres</p>
+                <p class="card-text"><b>Open Space Area:</b> {{details.open_space}} acres</p>
+                <p class="card-text"><b>Utility Area:</b> {{details.utility}} acres</p>
+                <p class="card-text"><b>Amenities Area:</b> {{details.amenities}} acres</p>
+                <p class="card-text"><b>Roads Area:</b> {{details.roads}} acres</p>
+                <p class="card-text"><b>Plotted Area:</b> {{details.plotted}} acres</p>
+                <p class="card-text"><b>Mortgage Area:</b> {{details.mortgage}} acres</p>
+                <p class="card-text"><b>Features:</b> {{details.characteristics}}</p>
+                <br>
+                <p class="card-text"><b>Speciality:</b> {{details.speciality}}</p>
+
+            </div>
+        </div>
+        <br>
+      </div>
+
+        </div>
+    </div>
+</div>
+{% endblock body %}

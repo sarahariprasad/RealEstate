@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<br>
+<div class="container">
+    <div class="row mx-auto mb-8">
+        {% for property in property_list %}
+      <div class="col-md-4 mx-auto">
+
+        <div class="card card-1">
+            <img class="card-img-top" src="{{property.image.url}}" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title"> {{property.name}}</h5>
+                <br>
+                {% if property.availability %}
+
+                            <small class="badge badge-success">For Sale</small>
+
+                {% else %}
+
+                            <small class="badge badge-danger">Sold Out</small>
+
+                {% endif %}
+
+                <br>
+                <br>
+
+
+              <i class="fa fa-map-marker-alt mt-6" aria-hidden="true"></i><span><b> {{property.location}}</b> </span>
+
+                 <p class="card-text"></p>
+
+                <a href="{% url 'venture:property_detail' property.id %}" class="btn btn-primary btn-rounded btn-md"> Details</a>
+            </div>
+        </div>
+        <br>
+      </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endblock body %}
